@@ -14,32 +14,27 @@ import {hp, wp} from '../config/dpTopx';
 import Link from '../components/Link';
 import colors from '../../assets/colors';
 
-export default function SignIn({navigation}) {
+export default function ForgotPasswordOtp({navigation}) {
   return (
     <SafeAreaView style={{flex: 1}}>
       <ImageBackground
         source={require('../../assets/images/background_image.png')}
         style={{flex: 1, justifyContent: 'flex-end'}}>
         <View style={styles.contentWrapper}>
-          <Text style={styles.headerText}>Login.</Text>
-          <Text style={styles.subtitleText}>Sign to your account</Text>
+          <Text style={styles.headerText}>Forgot Password?</Text>
+          <Text style={styles.subtitleText}>Recover your account</Text>
           <View style={styles.formWrapper}>
-            <Input placeholder="Email Address" label="YOUR EMAIL" />
-
-            <View style={{marginTop: hp(27)}}>
-              <Input placeholder="Password" label="PASSWORD" icon={'eye'} />
-            </View>
-
-            <View style={{marginTop: hp(27), marginBottom: hp(27)}}>
-              <Link
-                linkTitle="Forgot Password?"
-                onLink={() => navigation.navigate('ForgotPassword')}
-              />
-            </View>
-
+            <Text style={styles.instruction}>
+              Please check your email{' '}
+              <Text style={{color: colors.secondary}}>
+                bappikabir@email.com{' '}
+              </Text>
+              on instruction on how to complete your password reset
+            </Text>
+            <Text />
             <Button
-              title="Login"
-              onPress={() => navigation.navigate('HomeScreen')}
+              title="Go to Login"
+              onPress={() => navigation.navigate('SignIn')}
             />
           </View>
 
@@ -50,8 +45,8 @@ export default function SignIn({navigation}) {
               alignItems: 'center',
             }}>
             <Link
-              linkTitle="I Don't have an account"
-              onLink={() => navigation.navigate('SignUp')}
+              linkTitle="Did not receive an email"
+              //   onLink={() => navigation.navigate('SignIn')}
             />
           </View>
         </View>
@@ -86,5 +81,8 @@ const styles = StyleSheet.create({
     marginTop: hp(10),
     fontSize: hp(16),
     fontWeight: '300',
+  },
+  instruction: {
+    fontSize: hp(18),
   },
 });
