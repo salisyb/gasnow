@@ -7,7 +7,7 @@ export default function SplashScreen({navigation}) {
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate('Welcome');
-    }, 5000);
+    }, 3000);
   });
   return (
     <ImageBackground
