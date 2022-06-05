@@ -60,12 +60,8 @@ export default function Home({navigation}) {
       <View style={styles.header}>
         <HeaderComponent />
       </View>
+      <Text />
       <View style={styles.container2}>
-        {/* <TitleTextComponent
-          textStyle={styles.textEmergencyAssistance}
-          textTitle={'Emergency Assistance'}
-        /> */}
-
         <FlatList
           data={DATA}
           renderItem={renderItem}
@@ -74,11 +70,6 @@ export default function Home({navigation}) {
           showsVerticalScrollIndicator={false}
         />
       </View>
-      {/* <TouchableOpacity
-        navigationnavigation
-        style={{position: 'absolute', bottom: 30, padding: 10, borderWidth: 2}}>
-        <Text>Profile</Text>
-      </TouchableOpacity> */}
     </View>
   );
 }

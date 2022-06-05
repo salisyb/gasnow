@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
+import colors from '../../assets/colors';
 import {hp, wp} from '../config/dpTopx';
 import Button from './Button';
 
@@ -12,44 +13,45 @@ function HeaderComponent(props) {
   return (
     <View>
       <View style={styles.logo}>
-        <View style={styles.logoNEDC}>
+        <View style={styles.logoHeader}>
           <Image
             style={styles.imageR}
             source={require('../../assets/images/gasnow_logo.png')}
           />
-          <Text style={styles.nedcA}>{'NEDC\nALERT'}</Text>
+
+          <Text style={styles.nedcA}>{'GasNowPay'}</Text>
         </View>
         <View style={styles.wrapProfile}>
-          {/* <View style={styles.featherIcon}> */}
-          <Feather style={styles.featherIcon} name="bell" size={30} />
-          <Feather style={styles.featherIcon} name="mail" size={30} />
-          {/* </View> */}
-          {/* <I
-          
-          
-          */}
+          <View style={styles.featherIcon}>
+            <TouchableOpacity>
+              <Feather
+                style={styles.featherIcon}
+                color={colors.primary}
+                name="bell"
+                size={30}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Feather
+                style={styles.featherIcon}
+                color={colors.primary}
+                name="mail"
+                size={30}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Feather
+                style={styles.featherIcon}
+                name="user"
+                color={colors.primary}
+                size={30}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
       <View style={styles.welcomeTitle}>
-        <Button
-          textStyle={styles.textTitleEA}
-          textTitle={'Welcome to NEDC-Alert'}
-        />
-        <Button
-          textStyle={styles.textSubTitle}
-          textTitle={
-            'your direct link to North-East\n Development Commission...'
-          }
-        />
-        <View style={styles.headerButtons}>
-          <Button />
-          <Button title="QUICK ALERT" onPress={() => sendTipsAlert()} />
-          <Button
-            title="SEND TIPS"
-            buttStyle={{backgroundColor: '#F4A261'}}
-            onPress={sendTipsAlert}
-          />
-        </View>
+        <Button style={{borderRadius: 10}} title="Welcome to GasNowPayLater" />
       </View>
     </View>
   );
@@ -60,23 +62,25 @@ const styles = StyleSheet.create({
     marginTop: hp(20),
     flexDirection: 'row',
     width: wp(322),
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  logoNEDC: {
+  logoHeader: {
     flexDirection: 'row',
   },
   imageR: {
     borderRadius: 20,
-  },
-  imageP: {
-    marginHorizontal: 5,
-    borderRadius: 15,
+    width: wp(30),
+    height: wp(30),
+    resizeMode: 'contain',
   },
   nedcA: {
     marginTop: hp(5),
     marginLeft: hp(6),
     // fontFamily: 'Lato-Black',
-    fontSize: 16,
-    color: '#0D703A',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: colors.secondary,
     // letterSpacing: 2,
   },
   wrapProfile: {
@@ -85,7 +89,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   featherIcon: {
-    // flexDirection:'row',
+    flexDirection: 'row',
     marginHorizontal: 5,
   },
   welcomeTitle: {
